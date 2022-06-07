@@ -70,6 +70,7 @@
       </div>
     </footer>
 
+    <div class="search-overlay">HI</div>
 <?php wp_footer(); ?>
     </body>
 </html>
