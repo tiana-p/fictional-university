@@ -32,7 +32,7 @@ class Search {
                     this.resultsDiv.html('<div class="spinner-loader"></div>');
                     this.isSpinnerVisible = true;
                 }
-                this.typingTimer = setTimeout( this.getResults.bind(this), 2000);
+                this.typingTimer = setTimeout( this.getResults.bind(this), 750);
             }else{
                 this.resultsDiv.html('');
                 this.isSpinnerVisible = false;
@@ -44,22 +44,30 @@ class Search {
     }
 
     getResults(){
-        $.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
-            this.resultsDiv.html(`
-                <h2 class="search-overlay__section-title">General Information</h2>
-                ${posts.length ? '<ul class="link-list min-list">' : '<p>No general information matches that search</p>'}
+        $.when().then;
 
-                   ${posts.map(item => ` <li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
-                ${posts.length ? '</>' : ' '}
+
+        $.getJSON(universityData.root_url + '/wp-json/wp/v2/posts?search=' + this.searchField.val(), posts => {
+            $.getJSON(universityData.root_url + '/wp-json/wp/v2/pages?search=' + this.searchField.val(), pages => {
+                var combinedResults = posts.concat(pages); 
+                this.resultsDiv.html(`
+                <h2 class="search-overlay__section-title">General Information</h2>
+                ${combinedResults.length ? '<ul class="link-list min-list">' : '<p>No general information matches that search</p>'}
+
+                   ${combinedResults.map(item => ` <li><a href="${item.link}">${item.title.rendered}</a></li>`).join('')}
+                ${combinedResults.length ? '</>' : ' '}
             `);
             this.isSpinnerVisible = false;
+            })
         });
         
     }
     openOverlay(){
         this.searchOverlay.addClass("search-overlay--active");
         $("body").addClass("body-no-scroll");
-        this.isOverlayOpen=true;
+        this.searchField.val('');
+        setTimeout(() => this.searchField.trigger('focus'), 301);
+        this.isOverlayOpen = true;
     }
     closeOverlay(){
         this.searchOverlay.removeClass("search-overlay--active");        
