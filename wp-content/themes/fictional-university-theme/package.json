@@ -1,7 +1,6 @@
 {
-  "name": "fictional-university-theme",
+  "name": "gulpfile.js",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "wp-scripts build",
@@ -18,5 +17,9 @@
     "@wordpress/scripts": "*",
     "axios": "^0.21.1",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "description": ""
 }
