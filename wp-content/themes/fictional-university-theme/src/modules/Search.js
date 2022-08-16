@@ -56,7 +56,7 @@ class Search {
                 <div class="one-third">
                     <h2 class="search-overlay__section-title">Programs</h2>
 
-                    <h2>Professors</h2>
+                    <h2 class="search-overlay__section-title">Professors</h2>
                 </div>
                 <div class="one-third">
                     <h2 class="search-overlay__section-title">Campuses</h2>

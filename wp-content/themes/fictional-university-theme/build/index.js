@@ -4126,7 +4126,7 @@ class Search {
                 <div class="one-third">
                     <h2 class="search-overlay__section-title">Programs</h2>
 
-                    <h2>Professors</h2>
+                    <h2 class="search-overlay__section-title">Professors</h2>
                 </div>
                 <div class="one-third">
                     <h2 class="search-overlay__section-title">Campuses</h2>
@@ -4364,7 +4364,7 @@ module.exports = window["jQuery"];
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkfictional_university_theme"] = self["webpackChunkfictional_university_theme"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkgulpfile_js"] = self["webpackChunkgulpfile_js"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();
